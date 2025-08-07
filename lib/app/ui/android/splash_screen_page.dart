@@ -3,15 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends GetView<SplashController> {
-
   @override
   Widget build(BuildContext context) {
+    Get.put(SplashController());
 
     return Scaffold(
-    appBar: AppBar(title: Text('Splash Screen Page')),
-
-    body: SafeArea(
-      child: Text('SplashController'))
+      appBar: AppBar(title: Text('Splash Screen Page')),
+      body: const SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 20),
+              Text('Carregando...', style: TextStyle(fontSize: 16)),
+            ],
+          ),
+        ),
+      )
     );
   }
 }

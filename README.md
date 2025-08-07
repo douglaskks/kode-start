@@ -33,6 +33,24 @@ A arquitetura selecionada foi a <b>Arquitetura GetX Pattern</b> ou de forma mais
 
   <br>
 
-<h5> Sobre a arquitetura</h5>
+<h5>Sobre a arquitetura</h5>
 Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente adotada no mercado, oferece diversas vantagens como gerenciamento de estado reativo, injeção de dependência simplificada, navegação sem context e menor quantidade de código boilerplate comparado a outras soluções, um exemplo seria o <b>Bloc</b>, como o projeto é pequeno, não há necessidade de utilizar o Bloc como arquitetura, apesar de não haver empecilhos.
 
+<h2>Estrutura completa</h2>
+
+- `lib/`
+  - `app/`
+    - `bindings/` 
+      - `splash_binding.dart/`
+    - `controllers/` 
+      - `splash_controller.dart/`
+    - `routes/` 
+      - `app_pages.dart/`
+      - `app_routes.dart/`
+    - `ui/` 
+      - `android/`
+        - `detail_page.dart/`
+        - `home_page.dart/`
+        - `splash_screen_page.dart/`
+    - `models/` 
+  - `main.dart`

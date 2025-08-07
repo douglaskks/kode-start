@@ -15,11 +15,6 @@ void main() {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Tela Inicial"),
-        )
-      )
     )
   );
 }
