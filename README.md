@@ -41,12 +41,21 @@ Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente a
 - `lib/`
   - `app/`
     - `bindings/` 
-      - `splash_binding.dart/`
+      - `splash_binding.dart`
+      - `home_binding.dart`
     - `controllers/` 
-      - `splash_controller.dart/`
+      - `splash_controller.dart`
+      - `home_controller.dart`
+    - `data/` 
+      - `model/` 
+        - `character_model.dart` 
+      - `provider/`
+      - `repository/`
+      - `services/` 
+        - `character_service.dart` 
     - `routes/` 
-      - `app_pages.dart/`
-      - `app_routes.dart/`
+      - `app_pages.dart`
+      - `app_routes.dart`
     - `ui/` 
       - `android/`
         - `detail_page.dart`
@@ -54,5 +63,6 @@ Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente a
         - `splash_screen_page.dart`
       - `theme/`
       - `widgets/` 
-        - `app_bar_custom.dart` 
+        - `app_bar_custom.dart`
+        - `character_card.dart`
   - `main.dart`

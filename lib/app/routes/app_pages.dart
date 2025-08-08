@@ -1,3 +1,4 @@
+import 'package:app_rick_and_morty/app/bindings/home_binding.dart';
 import 'package:app_rick_and_morty/app/bindings/splash_binding.dart';
 import 'package:app_rick_and_morty/app/routes/app_routes.dart';
 import 'package:app_rick_and_morty/app/ui/android/home_page.dart';
@@ -16,6 +17,7 @@ class AppPages {
     GetPage(
       name: Routes.HOME,
       page: () => HomePage(),
+      binding: HomeBinding(),
     ),
     GetPage(name: Routes.PERSON_DETAILS, page: () => Container()),
   ];
