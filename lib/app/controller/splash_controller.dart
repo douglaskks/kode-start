@@ -14,4 +14,5 @@ class SplashController extends GetxController {
     
     Get.offAllNamed(Routes.HOME);
   }
+  
 }

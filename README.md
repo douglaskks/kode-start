@@ -49,8 +49,10 @@ Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente a
       - `app_routes.dart/`
     - `ui/` 
       - `android/`
-        - `detail_page.dart/`
-        - `home_page.dart/`
-        - `splash_screen_page.dart/`
-    - `models/` 
+        - `detail_page.dart`
+        - `home_page.dart`
+        - `splash_screen_page.dart`
+      - `theme/`
+      - `widgets/` 
+        - `app_bar_custom.dart` 
   - `main.dart`

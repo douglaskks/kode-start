@@ -8,7 +8,7 @@ class SplashPage extends GetView<SplashController> {
     Get.put(SplashController());
 
     return Scaffold(
-      appBar: AppBar(title: Text('Splash Screen Page')),
+      appBar: AppBar(title: const Text('Splash Screen Page')),
       body: const SafeArea(
         child: Center(
           child: Column(
