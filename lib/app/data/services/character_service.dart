@@ -50,6 +50,17 @@ class CharacterService {
 
   }
 
+  Future<CharacterResponse> searchCharacters(String name, {int page = 1}) async {
+
+    try {
+      final response = await _dio.get('character/?name=$name&page=$page');
+      return CharacterResponse.fromJson(response.data);
+    } on DioException catch (e) {
+      throw _handleError(e);
+    }
+
+  }
+
   String _handleError(DioException e) {
 
     switch (e.type) {

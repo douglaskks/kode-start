@@ -1,9 +1,10 @@
+import 'package:app_rick_and_morty/app/bindings/detail_biding.dart';
 import 'package:app_rick_and_morty/app/bindings/home_binding.dart';
 import 'package:app_rick_and_morty/app/bindings/splash_binding.dart';
 import 'package:app_rick_and_morty/app/routes/app_routes.dart';
+import 'package:app_rick_and_morty/app/ui/android/detail_page.dart';
 import 'package:app_rick_and_morty/app/ui/android/home_page.dart';
 import 'package:app_rick_and_morty/app/ui/android/splash_screen_page.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -19,7 +20,11 @@ class AppPages {
       page: () => HomePage(),
       binding: HomeBinding(),
     ),
-    GetPage(name: Routes.PERSON_DETAILS, page: () => Container()),
+    GetPage(
+      name: Routes.PERSON_DETAILS,
+      page: () => DetailPage(),
+      binding: DetailBinding(),
+      ),
   ];
 
 }

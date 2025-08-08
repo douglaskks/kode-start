@@ -7,15 +7,25 @@
 
 
 <center>
+<div>
+
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
+
+<div>
+
 <div style="background-color: #f0f0f0; padding: 15px; display: inline-block; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <img src="https://skillicons.dev/icons?i=dart" /> 
-  <img src="https://skillicons.dev/icons?i=flutter" />
+  <img src="https://skillicons.dev/icons?i=dart,flutter,git,github,vscode" />
 </div>
 </center>
 
 <h4> Projeto </h4>
 
 O Aplicativo Rick and Morty tem o intuito de mostrar todos os personagens da série <b>Rick and Morty</b> onde ao clicar nos personagens, irá obter detalhes do personagem em outra tela, o aplicativo tem funcionalidade de buscar por nome, e demais melhorias de UX.
+
+
+<h4> Sobre o Projeto</h4>
+
+Aplicativo desenvolvido para o **Desafio Kode Start 2025** - Workshop de Flutter da Kobe. O app consome a [Rick and Morty API]( https://rickandmortyapi.com/api/) para exibir informações detalhadas sobre os personagens da série.
 
 <h4>Arquitetura</h4>
 A arquitetura selecionada foi a <b>Arquitetura GetX Pattern</b> ou de forma mais técnica <b>GetX Architecture</b>
@@ -33,7 +43,7 @@ A arquitetura selecionada foi a <b>Arquitetura GetX Pattern</b> ou de forma mais
 
   <br>
 
-<h5>Sobre a arquitetura</h5>
+<h4>Sobre a arquitetura</h4>
 Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente adotada no mercado, oferece diversas vantagens como gerenciamento de estado reativo, injeção de dependência simplificada, navegação sem context e menor quantidade de código boilerplate comparado a outras soluções, um exemplo seria o <b>Bloc</b>, como o projeto é pequeno, não há necessidade de utilizar o Bloc como arquitetura, apesar de não haver empecilhos.
 
 <h2>Estrutura completa</h2>
@@ -66,3 +76,24 @@ Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente a
         - `app_bar_custom.dart`
         - `character_card.dart`
   - `main.dart`
+
+
+### Funcionalidades Implementadas
+
+  #### Obrigatórias
+- [x] **Scroll na lista de personagens** - Navegação fluida entre todos os personagens
+- [x] **Exibir cards com Nome, Imagem** - Cards visuais com informações essenciais
+- [x] **Tela de detalhes** - Nome, imagem, espécie, gênero, status, origem e última localização
+- [x] **Navegação até a tela de detalhe do personagem** - Transição suave entre telas
+
+#### Opcionais 🚀
+- [ ] **Busca por Nome** - Busca parcial ou completa com debounce
+
+<br>
+
+### Screenshots
+
+| Home Screen | Details Screen |
+|:---:|:---:|
+| <img src="assets/image-2.png" alt="Tela Home do Aplicativo" width="300"/> | <img src="assets/image-3.png" alt="Tela de Detalhes do Personagem" width="300"/> |
+

@@ -130,7 +130,7 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
 }
 
   @override
-  Size get preferredSize => Size.fromHeight(appBarHeight); // ✅ Corrigido
+  Size get preferredSize => Size.fromHeight(appBarHeight);
 }
 
 class CustomAppBarController extends GetxController {
