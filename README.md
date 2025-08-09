@@ -6,9 +6,9 @@
 
 ![Status](https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge)
 
-``![Flutter](https://img.shields.io/badge/Flutter-3.24.3-blue?style=for-the-badge&logo=flutter)
+![Flutter](https://img.shields.io/badge/Flutter-3.24.3-blue?style=for-the-badge&logo=flutter)
 
-``![Dart](https://img.shields.io/badge/Dart-3.5.3-blue?style=for-the-badge&logo=dart)
+![Dart](https://img.shields.io/badge/Dart-3.5.3-blue?style=for-the-badge&logo=dart)
 
 <img src="https://skillicons.dev/icons?i=dart,flutter,git,github,vscode" />
 
@@ -26,14 +26,14 @@ Aplicativo que consome a [Rick and Morty API](https://rickandmortyapi.com/) para
 - **💾 Cache de imagens** para melhor performance
 - **⚡ Loading states** em todas as operações
 - **🛡️ Error handling** robusto
-- **🎨 Splash screen** profissional
+- **🎨 Splash screen**
 
 ## 📸 Screenshots
 
-| Home Screen | Search Feature | Details Screen |
-|:---:|:---:|:---:|
-| <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> | <img src="assets/image-3.png" alt="Detalhes do Personagem" width="250"/> |
-| Lista completa de personagens com scroll infinito | Busca em tempo real por nome | Informações detalhadas do personagem |
+| Splash Screeen | Home Screen | Search Feature | Details Screen |
+|:---:|:---:|:---:|:---:|
+|  <img src="assets/SplashScreen.png" alt="Lista de Personagens" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> | <img src="assets/image-3.png" alt="Detalhes do Personagem" width="250"/> |
+|Splash Screen Animada para dar um destaque ao app quando o usuário entrar| Lista completa de personagens com scroll infinito | Busca em tempo real por nome | Informações detalhadas do personagem |
 
 ## 🏗️ Arquitetura
 
