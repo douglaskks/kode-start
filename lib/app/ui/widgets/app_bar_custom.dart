@@ -1,3 +1,4 @@
+import 'package:app_rick_and_morty/app/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,11 +34,15 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    final HomeController homeController = Get.find<HomeController>();
+    
+    return Obx(() => AppBar(
       toolbarHeight: appBarHeight,
-      title: _buildLogoAndTitle(),
-      centerTitle: centerTitle,
-      backgroundColor: backgroundColor ?? Color(0xFF1C1B1F),
+      title: homeController.isSearchMode.value 
+        ? _buildSearchField(homeController) 
+        : _buildLogoAndTitle(),
+      centerTitle: !homeController.isSearchMode.value,
+      backgroundColor: backgroundColor ?? const Color(0xFF1C1B1F),
       elevation: elevation,
       leading: leading ?? (showMenuIcon ? 
         Padding(
@@ -53,30 +58,90 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
             },
           ),
         ) : null),
-      actions: actions ?? (showProfileIcon ? [
+      actions: [
         Padding(
           padding: const EdgeInsets.only(bottom:80.0),
           child: IconButton(
-            icon: Container(
-              padding: const EdgeInsets.all(2),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.white70, width: 1),
-              ),
-              child: const Icon(
-                Icons.person,
-                color: Colors.white,
-                size: 24,
-              ),
+            icon: Icon(
+              homeController.isSearchMode.value ? Icons.close : Icons.search,
+              color: Colors.white,
+              size: 28,
             ),
             onPressed: () {
-
-              print('Perfil clicado');
-
+              if (homeController.isSearchMode.value) {
+                homeController.exitSearchMode();
+              } else {
+                homeController.enterSearchMode();
+              }
             },
           ),
         ),
-      ] : null),
+        if (!homeController.isSearchMode.value && showProfileIcon)
+          Padding(
+            padding: const EdgeInsets.only(bottom:80.0),
+            child: IconButton(
+              icon: Container(
+                padding: const EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white70, width: 1),
+                ),
+                child: const Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 24,
+                ),
+              ),
+              onPressed: () {
+                print('Perfil clicado');
+              },
+            ),
+          ),
+      ],
+    ));
+  }
+
+  Widget _buildSearchField(HomeController controller) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30, left: 16, right: 16),
+      child: Container(
+        height: 45,
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(color: Colors.white.withOpacity(0.3)),
+        ),
+        child: TextField(
+          autofocus: true,
+          style: const TextStyle(color: Colors.white, fontSize: 16),
+          decoration: InputDecoration(
+            hintText: 'Buscar personagens...',
+            hintStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+            prefixIcon: Padding(
+              padding: EdgeInsets.only(left: 15, right: 10),
+              child: Obx(() => controller.isSearching.value
+                ? const SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
+                  )
+                : Icon(Icons.search, color: Colors.white.withOpacity(0.7))),
+            ),
+            suffixIcon: Obx(() => controller.searchQuery.value.isNotEmpty
+              ? IconButton(
+                  icon: Icon(Icons.clear, color: Colors.white.withOpacity(0.7)),
+                  onPressed: () => controller.updateSearchQuery(''),
+                )
+              : const SizedBox()),
+            border: InputBorder.none,
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+          ),
+          onChanged: controller.updateSearchQuery,
+        ),
+      ),
     );
   }
 
@@ -99,7 +164,7 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
                 return Container(
                   height: logoHeight,
                   width: logoHeight,
-                  child: Icon(
+                  child: const Icon(
                     Icons.error,
                     color: Colors.white,
                     size: 30,
@@ -157,7 +222,7 @@ class ReactiveCustomAppBar extends GetView<CustomAppBarController> implements Pr
             ),
           )
         : Text(title),
-      backgroundColor: Color(0xFF1C1B1F),
+      backgroundColor: const Color(0xFF1C1B1F),
       actions: [
         IconButton(
           icon: Icon(controller.isSearchMode.value ? Icons.close : Icons.search),
@@ -170,3 +235,4 @@ class ReactiveCustomAppBar extends GetView<CustomAppBarController> implements Pr
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+

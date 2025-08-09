@@ -7,6 +7,7 @@
 
 
 <center>
+<br>
 <div>
 
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
@@ -25,10 +26,24 @@ O Aplicativo Rick and Morty tem o intuito de mostrar todos os personagens da sé
 
 <h4> Sobre o Projeto</h4>
 
-Aplicativo desenvolvido para o **Desafio Kode Start 2025** - Workshop de Flutter da Kobe. O app consome a [Rick and Morty API]( https://rickandmortyapi.com/api/) para exibir informações detalhadas sobre os personagens da série.
+Aplicativo desenvolvido para o **Desafio Kode Start 2025** - Workshop de Flutter da Kobe. O app consome a [Rick and Morty API]( https://rickandmortyapi.com/) para exibir informações detalhadas sobre os personagens da série.
 
-<h4>Arquitetura</h4>
-A arquitetura selecionada foi a <b>Arquitetura GetX Pattern</b> ou de forma mais técnica <b>GetX Architecture</b>
+## 🏗️ Arquitetura
+
+O projeto utiliza **GetX Pattern**, uma arquitetura moderna e eficiente para aplicações Flutter.
+
+### Por que GetX?
+
+-  **Gerenciamento de Estado Reativo** - Atualizações automáticas da UI
+-  **Injeção de Dependências Simplificada** - Menos boilerplate
+-  **Navegação sem Context** - Código mais limpo
+-  **Performance Otimizada** - Ideal para projetos de médio porte
+-  **Curva de Aprendizado Suave** - Fácil manutenção
+
+
+<b>Podemos aprender mais sobre o GetX [aqui](https://kauemurakami.github.io/getx_pattern/) </b>
+
+
 <br>
 <br>
 
@@ -87,13 +102,13 @@ Foi escolhido essa forma por além de ser uma arquitetura moderna e amplamente a
 - [x] **Navegação até a tela de detalhe do personagem** - Transição suave entre telas
 
 #### Opcionais 🚀
-- [ ] **Busca por Nome** - Busca parcial ou completa com debounce
+- [x] **Busca por Nome** - Busca parcial ou completa com debounce
 
 <br>
 
 ### Screenshots
 
-| Home Screen | Details Screen |
-|:---:|:---:|
-| <img src="assets/image-2.png" alt="Tela Home do Aplicativo" width="300"/> | <img src="assets/image-3.png" alt="Tela de Detalhes do Personagem" width="300"/> |
+| Home Screen | Search Screen | Details Screen
+|:---:|:---:|:---:
+| <img src="assets/telaHomeSearch.png" alt="Tela Home do Aplicativo" width="300"/> | <img src="assets/searchScreen.png" alt="Tela Home do Aplicativo" width="300"/> | <img src="assets/image-3.png" alt="Tela de Detalhes do Personagem" width="300"/>
 
