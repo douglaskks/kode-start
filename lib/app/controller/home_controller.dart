@@ -19,7 +19,6 @@ class HomeController extends GetxController {
   var isSearchMode = false.obs;
   var searchQuery = ''.obs;
   var isSearching = false.obs;
-  var searchResults = <Character>[].obs;
 
   //Debounce para a busca
   Timer? _debounceTimer;
@@ -106,7 +105,6 @@ class HomeController extends GetxController {
   void exitSearchMode() {
     isSearchMode.value = false;
     searchQuery.value = '';
-    searchResults.clear();
     characters.value = allCharacters;
     _debounceTimer?.cancel();
   }
@@ -138,8 +136,7 @@ class HomeController extends GetxController {
       final response = await _characterService.searchCharacters(searchQuery.value);
       
       characters.value = response.results;
-      searchResults.value = response.results;
-      
+            
     } catch (e) {
       characters.clear();
       hasError.value = true;

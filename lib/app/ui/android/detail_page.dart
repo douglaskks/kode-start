@@ -81,7 +81,7 @@ class DetailPage extends GetView<DetailController> {
                           width: 320,
                           padding: const EdgeInsets.all(20),
                           decoration: const BoxDecoration(
-                            color: Color(0xFF987A1FA),
+                            color: Color(0xFF87A1FA),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
