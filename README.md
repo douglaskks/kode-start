@@ -135,6 +135,7 @@ dependencies:
   get: ^4.7.2
   cached_network_image: ^3.4.1
   dio: ^5.9.0
+  flutter_launcher_icons: ^0.14.4
 ```
 
 ## 🚦 Como Executar
