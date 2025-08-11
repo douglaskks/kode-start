@@ -8,12 +8,15 @@ class DetailController extends GetxController {
   var firstEpisodeName = ''.obs;
 
   @override
+
   void onInit() {
     super.onInit();
     _loadCharacterData();
+    
   }
 
   void _loadCharacterData() {
+
     try {
       isLoading.value = true;
       
@@ -40,9 +43,11 @@ class DetailController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+
   }
 
   void _loadFirstEpisode() {
+
     if (character.value?.episode.isNotEmpty == true) {
       final firstEpisodeUrl = character.value!.episode.first;
 
@@ -51,9 +56,11 @@ class DetailController extends GetxController {
     } else {
       firstEpisodeName.value = 'Não informado';
     }
+
   }
 
   RxString get statusColor {
+
     switch (character.value?.status.toLowerCase()) {
       case 'alive':
         return 'green'.obs;
@@ -62,9 +69,11 @@ class DetailController extends GetxController {
       default:
         return 'grey'.obs;
     }
+
   }
 
   RxString get statusIcon {
+
     switch (character.value?.status.toLowerCase()) {
       case 'alive':
         return 'favorite'.obs;
@@ -73,9 +82,12 @@ class DetailController extends GetxController {
       default:
         return 'help'.obs;
     }
+
   }
 
   void goBack() {
+
     Get.back();
+
   }
 }
