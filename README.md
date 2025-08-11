@@ -40,17 +40,15 @@ Aplicativo que consome a [Rick and Morty API](https://rickandmortyapi.com/) para
 - **🎨 Splash screen**
 
 ## 📸 Screenshots
-
-| Splash Screeen | Home Screen |  
+| Splash Screen | Home Screen |
 |:---:|:---:|
-|  <img src="assets/SplashScreen.png" alt="Lista de Personagens" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | 
-|Splash Screen Animada para dar um destaque ao app quando o usuário entrar| Lista completa de personagens com scroll infinito |
+| <img src="assets/SplashScreen.png" alt="Splash Screen" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Home Screen" width="250"/> |
+| Splash Screen Animada para dar um destaque ao app quando o usuário entrar | Lista completa de personagens com scroll infinito |
 
 | Search Screen | Details Screen |
 |:---:|:---:|
 | <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> | <img src="assets/DetailsPage.png" alt="Detalhes do Personagem" width="250"/> |
- Busca em tempo real por nome | Informações detalhadas do personagem |
-
+| Busca em tempo real por nome | Informações detalhadas do personagem |
 
 ## 🏗️ Arquitetura
 
