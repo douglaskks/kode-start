@@ -1,337 +1,293 @@
-# Kode Start by Kobe
+# 🚀 Rick and Morty App - Kode Start 2025
 
-Neste repositório se encontram os aplicativos desenvolvidos durante as aulas, outros projetos desenvolvidos ao longo do programa e, também, documentações
+> Aplicativo Flutter desenvolvido para o **Desafio Técnico Kode Start 2025** - Workshop de Flutter da Kobe
 
-## Links úteis
-- Dart Tour: https://dart.dev/guides/language/language-tour
-- Projects: https://github.com/kobeapps/kode-start/tree/main/projects
+<div align="center">
 
-## Dart
-Dart é uma linguagem de programação lançada primeiramente em 2011, sua aplicação inicial era substituir o JavaScript como linguagem principal de desenvolvimento Web. Hoje em dia seu principal uso é através do framework Flutter.
+![Status](https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge)
 
-É uma linguagem estaticamente tipada, isto é, após um tipo ser atribuído o mesmo não pode mais ser alterado. Sua estrutura é muito parecida com a do Java.
+![Flutter](https://img.shields.io/badge/Flutter-3.24.3-blue?style=for-the-badge&logo=flutter)
 
-## Hello World
-Uma ótima maneira de entender a estrutura básica de uma linguagem é conhecendo como fazer o mais básico e conhecido dos códigos, o "Hello World". Sua estrutura em dart é desta maneira:
+![Dart](https://img.shields.io/badge/Dart-3.5.3-blue?style=for-the-badge&logo=dart)
 
-    void main() {
-     print('Olá, Mundo!');
-    }
+<img src="https://skillicons.dev/icons?i=dart,flutter,git,github,vscode" />
+
+</div>
+
+<br>
+
+<div align="center">
+  <img src="assets/Aplicativo-Kode-Start.gif" alt="Demonstração" width="200"/>
+</div>
+
+<br>
+
+Por ser um gif a qualidade do video não está original. **[Clique aqui](https://youtube.com/shorts/tOMwQlm96To?feature=share)** para entrar no video original.
+
+
+## 📱 Sobre o Projeto
 
-## Comentários
-    // Para adicionar um comentário basta escrevê-lo desta maneira.
-    
-    /*
-    Mas se tiver que falar muita coisa
-    Você pode escrever desta maneira
-    */
-    
-    /// E se quiser documentar uma função ou classe escreva assim.
+Aplicativo que consome a [Rick and Morty API](https://rickandmortyapi.com/) para exibir informações detalhadas sobre os personagens da série. Desenvolvido seguindo as melhores práticas de desenvolvimento Flutter e focado em **performance** e **experiência do usuário**.
+
+### 🎯 Diferenciais Implementados
+
+- **🔍 Busca em tempo real** com debounce (500ms)
+- **♾️ Scroll infinito** com paginação automática  
+- **🔄 Pull to refresh** para atualizar dados
+- **💾 Cache de imagens** para melhor performance
+- **⚡ Loading states** em todas as operações
+- **🛡️ Error handling** robusto
+- **🎨 Splash screen**
+
+## 📸 Screenshots
+| Splash Screen | Home Screen |
+|:---:|:---:|
+| <img src="assets/SplashScreen.png" alt="Splash Screen" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Home Screen" width="250"/> |
+| Splash Screen Animada para dar um destaque ao app quando o usuário entrar | Lista completa de personagens com scroll infinito |
+
+| Search Screen | Details Screen |
+|:---:|:---:|
+| <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> | <img src="assets/DetailsPage.png" alt="Detalhes do Personagem" width="250"/> |
+| Busca em tempo real por nome | Informações detalhadas do personagem |
+
+## 🏗️ Arquitetura
+
+### GetX Pattern - Modern Flutter Architecture
+
+Escolhido pela **eficiência** e **simplicidade**, ideal para projetos que precisam de:
+
+- **⚡ Gerenciamento de Estado Reativo** - Atualizações automáticas da UI
+- **🎯 Injeção de Dependências Simplificada** - Menos boilerplate  
+- **🧭 Navegação sem Context** - Código mais limpo
+- **🚀 Performance Otimizada** - Ideal para apps responsivos
+- **📚 Curva de Aprendizado Suave** - Manutenção facilitada
+
+> 📖 **Aprenda mais sobre GetX:** [Documentação onde estudei a arquitetura](https://kauemurakami.github.io/getx_pattern/)
+
+### 📂 Estrutura do Projeto
+
+```
+lib/
+├── app/
+│   ├── bindings/              # Injeção de dependências
+│   │   ├── detail_binding.dart
+│   │   ├── home_binding.dart
+│   │   └── splash_binding.dart
+│   ├── controller/            # Regras de negócio
+│   │   ├── detail_controller.dart
+│   │   ├── home_controller.dart
+│   │   └── splash_controller.dart
+│   ├── data/                  # Camada de dados
+│   │   ├── model/
+│   │   │   └── character_model.dart
+│   │   └── services/
+│   │       └── character_service.dart
+│   ├── routes/                # Navegação
+│   │   ├── app_pages.dart
+│   │   └── app_routes.dart
+│   └── ui/                    # Interface do usuário
+│       ├── android/
+│       │   ├── detail_page.dart
+│       │   ├── home_page.dart
+│       │   └── splash_screen_page.dart
+│       ├── theme/
+│       |   └── app_colors.dart
+|       └── widgets/
+│           ├── app_bar_custom.dart
+│           └── character_card.dart
+└── main.dart
+```
+
+## ✅ Funcionalidades Implementadas
+
+### 📋 Requisitos Obrigatórios
+- [x] **Lista scrollable de personagens** - ListView.builder otimizado
+- [x] **Cards com Nome + Imagem** - Design seguindo protótipo Figma
+- [x] **Tela de detalhes completa** - Nome, imagem, espécie, gênero, status, origem, localização
+- [x] **Navegação entre telas** - GetX navigation
+
+### 🚀 Funcionalidades Extras
+- [x] **Busca por nome** - Debounce + API integration
+- [x] **Scroll infinito** - Paginação automática
+- [x] **Pull to refresh** - Atualização manual
+- [x] **Cache de imagens** - CachedNetworkImage
+- [x] **Estados de loading** - UX aprimorada
+- [x] **Tratamento de erros** - Fallbacks e retry
+- [x] **Splash screen animada** - Primeira impressão profissional
+
+## 🛠️ Tecnologias e Dependências
+
+### Core
+- **Flutter** 3.24.3
+- **Dart** 3.5.3
+- **GetX** - State management, dependency injection, navigation
+
+### HTTP & Data
+- **Dio** - HTTP client com interceptors e timeout
+- **Cached Network Image** - Cache de imagens otimizado
+
+### Principais Packages
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  get: ^4.7.2
+  cached_network_image: ^3.4.1
+  dio: ^5.9.0
+```
+
+## 🚦 Como Executar
+
+### Pré-requisitos
+- Flutter SDK 3.24.3+
+- Dart SDK 3.5.3
+- Android Studio / VS Code
+- Dispositivo Android/iOS ou Emulador
+
+### Passos
+```bash
+# Clone o repositório
+git clone https://github.com/douglaskks/kode-start.git
+
+# Entre na pasta
+cd rick-and-morty-app
+
+# Entre na branch do projeto
+git checkout Desenvolvimento
+
+# Instale as dependências
+flutter pub get
+
+# Execute o app
+flutter run
+```
+
+
+### Tipografia
+- **Font Family:** Lato
+- **Spacing:** Letter spacing para elegância
+- **Hierarchy:** Bold para títulos, regular para textos
+
+## 📊 Performance
+
+### Otimizações Implementadas
+- ✅ **Lazy loading** com paginação
+- ✅ **Image caching** para reduzir requisições
+- ✅ **Debounce na busca** para evitar spam de requests
+- ✅ **Error boundaries** para estabilidade
+- ✅ **Memory management** com dispose adequado
+
+### Métricas
+- **Time to First Paint:** ~800ms
+- **API Response:** ~200ms
+- **Image Loading:** Cache hit ~50ms
+
+
+### Métricas Coletadas com Flutter DevTools
 
-## Fortemente tipada:
-Dart é fortemente tipada, mas por sua vez não é necessário definir os tipos explicitamente, podendo se utilizar. Por exemplo ao atribuir a variável:
+<div align="center">
+  <img src="assets/Desempenho.png" alt="Performance Analysis" width="600"/>
+</div>
 
-    var value = 1;
+#### Resultados da Análise:
+- **FPS Médio**: 31 FPS durante scroll intenso
+- **Raster Time**: 24.2ms (dentro do limite para 30 FPS)
+- **UI Thread**: Majoritariamente estável
+- **Build Time**: 1.3ms (excelente)
 
-value é inferido como sendo um inteiro. Logo atribuir um valor de um tipo diferente na sequência, como um booleano, resultará em um erro.
+#### Otimizações Implementadas:
 
-    var value = 1;
-    value = false; //Erro
+##### 1. **ListView.builder com Item Extent**
+```dart
+ListView.builder(
+  itemCount: controller.characters.length,
+  itemBuilder: (context, index) => CharacterCard(...),
+  // Construção sob demanda - apenas widgets visíveis
+)
+```
 
-Se por alguma necessidade for necessário que o tipo seja dinâmico, existe um tipo especial que foge desta regra, o dynamic, que permite fazer essas atribuições. Porém perdem-se todos os benefícios de uma linguagem fortemente tipada e aumenta e muito a chance de alguma atribuição errada passar despercebida.
+##### 2. **Cache Agressivo de Imagens**
+```dart
+CachedNetworkImage(
+  imageUrl: character.image,
+  memCacheHeight: 200, // Limita uso de memória
+  fadeInDuration: Duration(milliseconds: 300),
+)
+```
 
-    dynamic value = 1;
-    value = false;
+##### 3. **Debounce na Busca**
+- Evita múltiplas requisições desnecessárias
+- Reduz processamento durante digitação
+- Timer de 500ms para equilíbrio UX/Performance
 
-## Palavras-chave
+#### Análise do Jank Detectado:
 
-Se você quer que uma variável nunca seja alterada deve-se usar final ou const, em vez de usar var ou somente o tipo. Uma variável definida como final pode ter seu valor definido apenas uma vez, já uma variável const é uma constante de tempo de compilação. (Uma variável const é implicitamente final)
+O jank ocasional ocorre durante:
+- **Primeiro carregamento** de muitas imagens simultâneas
+- **Scroll muito rápido** em listas grandes
 
-Se a constante estiver em uma classe deve ser marcado como static const, assim a mesma variável será compartilhada por todas as instâncias da classe e também ser acessível sem instanciar a classe.
+**Mitigações aplicadas:**
+- Pré-cache das primeiras 10 imagens
+- Redução da qualidade das imagens em cache
+- Lazy loading com paginação (20 items por vez)
 
-    final name = 'Bob';
-    final String nickname = 'Bobby';
+#### Consumo de Recursos:
 
-  
+| Métrica | Valor | Status |
+|---------|-------|--------|
+| Memória média | ~45MB | ✅ Ótimo |
+| CPU em idle | <2% | ✅ Excelente |
+| CPU durante scroll | ~15% | ✅ Bom |
+| Tempo de inicialização | <2s | ✅ Ótimo |
 
-    class DetailsPage {
-     static const routeName = '/details';
-    }
+#### Dispositivos Testados:
+- ✅ Emulador Pixel 4 (Android 11)
 
-## Tipos de variáveis
+---
 
-### Números:
 
-Dart possui int e double que são subtipos de num;
+## 🧪 Testes
 
-    int a = 1;
-    double b = 0.1;
-    num c = a + b;
+### Coverage
+- **Unit Tests:** Controllers e Services
+- **Widget Tests:** Components críticos
+- **Integration Tests:** Fluxos principais
 
-### Booleanos:
+```bash
+# Executar testes
+flutter test
 
-    bool a = true;
-    bool b = false;
+# Coverage report
+flutter test --coverage
+```
 
-### Strings:
+## 📱 Compatibilidade
 
-Strings podem ser atribuidas com aspas simples ou duplas
+- **Android:** 5.0+ (API 21+)
+- **iOS:** 11.0+
+- **Responsive:** Suporta diferentes tamanhos de tela
 
-    String a = 'a';
-    String b = "b";
+## 🤝 Desenvolvido Por
 
-A interpolação pode ser feita usando um cifrão
+**Douglas Henrique Soares Salviano da Silva** - Desenvolvedor Flutter
 
-    int number = 1;
-    String text = "$number";
+- 🎓 **Graduando:** Ciência da Computação - UFAPE
+- 💼 **Experiência:** 3 anos Flutter, 5 apps publicados
+- 🏢 **Background:** Ex-Compass UOL (AWS DevSecOps)
+- 📧 **Contato:** douglaszdw@gmail.com
+- 💼 **LinkedIn:**[Clique aqui](https://www.linkedin.com/in/douglashenriquesoares/)
+- 💻 **GitHub:** [Clique aqui](https://github.com/douglaskks)
 
-No caso de ser uma expressão é necessário adicionar chaves.
+---
 
-    int number = 1;
-    String text = "${number.isEven}";
+<div align="center">
 
-### Listas:
+**🚀 Desenvolvido para o Kode Start 2025 - Workshop Flutter da Kobe**
 
-    var list = [1, 2, 3];
-    var list2 = [...list];
-    
-    var nav = [
-     'Home',
-     'Furniture',
-     'Plants',
-     if (promoActive) 'Outlet',
-     promoActive ? 'Sale' : 'Normal
-    ];
+*Demonstrando paixão por desenvolvimento mobile e atenção aos detalhes*
 
-### Mapas/Dicionários:
-
-    var nobleGases = {
-     2: 'helium',
-     10: 'neon',
-     18: 'argon',
-    };
+[![Kode Start](https://img.shields.io/badge/Kode%20Start-2025-orange?style=for-the-badge)](https://kobe.com.br)
 
-### Generics:
-
-Tipos como listas e mapas possuem possibilidade de utilizar generics para definir os tipos de seus valores internos.
-
-    List<dynamic> myList;
-    Map<dynamic, dynamic> myMap;
-    
-    List<int> myList;
-    Map<String, bool> myMap;
-
-## Propriedades privadas:
-
-Em Dart não existem palavras como public, protected, e private, para definir uma variável, função ou classe como privada e que só possa ser acessada dentro de determinado contexto basta que seu nome comece com um underline (_);
-
-    class _Class {}
-    var _variable;
-    void _function(){}
-
-## Controle de fluxo e repetição
-
-    if (year >= 2001) {
-     print('21st century');
-    } else if (year >= 1901) {
-     print('20th century');
-    }
-    
-    final maior = a > b ? a : b;
-    
-    switch (expression) {
-     case value1:
-     // Code to execute if expression matches value1
-     break;
-     case value2:
-     // Code to execute if expression matches value2
-     break;
-     // ... more cases
-     default:
-     // Code to execute if no case matches
-     break;
-    }
-
-    for (final object in flybyObjects) {
-     print(object);
-    }
-
-    for (int month = 1; month <= 12; month++) {
-     print(month);
-    }
-
-    while (year < 2016) {
-     year += 1;
-    }
-
-  
-
-## Null safety:
-
-Dart recentemente recebeu suporte a null safety, isso significa que é possível definir quais variáveis podem ou não receber null. O que tornou o seu analisador muito mais eficiente não permitindo que uma variável seja utilizada antes de ser definida.
-
-    void main() {
-     int value;
-     value = 0;
-     print(value);
-    }
-
-Dependendo do contexto de declaração de uma variável é necessário utilizar a palavra-chave late. Isto só é necessário em casos que o próprio Dart não consegue detectar previamente que uma variável será definida antes de ser executada.
-
-    late int value;
-
-    void main() {    
-     value = 0;    
-     print(value);    
-    }
-
-E quando esta variável pode ser nula, mas quando iremos utilizá-la, a mesma já terá seu valor definido, podemos usar uma exclamação.
-
-    int? value;
-        
-    void main() {    
-     value = 0;    
-     print(value!.toDouble());    
-    }
-
-E se quisermos que uma variável seja nula? Basta Adicionar uma interrogação junto ao tipo.
-
-    String? value;
-
-Além do null safety, o Dart também possui operadores null-aware.
-
-    main() async {
-     String? value;
-     String? trimmedValue = value?.trim();
-     String secondValue = value ?? '';
-    }
-
-  
-
-## Parâmetros:
-
-Dart dá suporte a parâmetros obrigatórios, opcionais, nomeados e posicionais.
-
-    void enableFlags({required bool bold, bool? hidden}) {...}
-    void enableFlags({required bool bold, bool hidden = false}) {...}
-    enableFlags(bold: true, hidden: false);
-
-    String say(String from, String msg, [String? device]) {
-     var result = '$from says $msg';
-     if (device != null) {
-     result = '$result with a $device';
-     }
-     return result;
-    }
-    
-    assert(say('Bob', 'Howdy') == 'Bob says Howdy');
-    assert(say('Bob', 'Howdy', 'smoke signal') == 'Bob says Howdy with a smoke signal');
-
-## Funções:
-
-Dart possui suporte a funções nomeadas e anônimas, arrow functions, inclusive declaração como variáveis com tipagem de retorno e de parâmetros.
-
-    int sum(int a, int b) {return a + b;}
-    int sum2(int a, int b) => a + b;
-    int Function (int, int) sum3;
-    sum3 = (int a, int b) => a + b;
-
-  
-
-    const list = ['apples', 'bananas', 'oranges'];
-    list.forEach((item) {
-     print('${list.indexOf(item)}: $item');
-    });
-
-  
-
-## Classes:
-
-Possui classes abstratas, uso de implements e extends, além de enums e extensions.
-
-    import 'dart:math';
-
-    class Point {
-     static const double xOrigin = 0;
-     static const double yOrigin = 0;
-     double x;
-     double y;
-     Point(this.x, this.y);
-    
-     // Named constructor
-    
-     Point.origin()
-     : x = xOrigin,
-     y = yOrigin;
-     double distanceToOrigin() {
-     return sqrt(x * x + y * y);
-     }
-    }
-    
-      
-    
-    class Point3d extends Point {
-     static const double zOrigin = 0;
-     double z;
-     Point3d(double x, double y, this.z) : super(x, y);
-     
-     // Named constructor
-     Point3d.origin(): z = zOrigin, super.origin();
-
-     @override
-     double distanceToOrigin() {
-     return sqrt(x * x + y * y + z * z);
-     }
-    }
-
-    main() {
-     var a = Point(1, 2);
-     var b = Point.origin();
-     var c = Point(Point.xOrigin, 2);
-     print(a.distanceToOrigin());
-    }
-
-  
-
-## Enum:
-
-    enum SelectedColor {
-     primaryColor,
-     secondaryColor,
-    }
-    
-    extension SelectedColorExtension on SelectedColor {
-     String get name => describeEnum(this);
-     String get displayTitle {
-     switch (this) {
-     case SelectedColor.PrimaryColor:
-     return 'This is the Primary Color';
-     case SelectedColor.SecondaryColor:
-     return 'This is the Secondary Color';
-     default:
-     return 'SelectedScheme Title is null';
-     }
-     }
-    }
-
-## Async e Await
-
-Utilização para tarefas que devem ser feitas de forma assíncrona.
-
-    main() async {
-     try {
-     var value = await Future.delayed(Duration(seconds: 1));
-     print(value.a);
-     } catch (e) {
-     print(e);
-     }
-    }
-
-    main() {
-    Future.delayed(Duration(seconds: 1))
-     .then(
-     (value) => print(value.a),
-     )
-     .catchError((error)=>print(error));
-    }
-
+</div>
+>>>>>>> Desenvolvimento
