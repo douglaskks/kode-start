@@ -75,7 +75,9 @@ lib/
 │       │   ├── detail_page.dart
 │       │   ├── home_page.dart
 │       │   └── splash_screen_page.dart
-│       └── widgets/
+│       ├── theme/
+│       |    └── app_colors.dart
+|       └── widgets/
 │           ├── app_bar_custom.dart
 │           └── character_card.dart
 └── main.dart

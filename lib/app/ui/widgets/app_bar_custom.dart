@@ -1,4 +1,5 @@
 import 'package:app_rick_and_morty/app/controller/home_controller.dart';
+import 'package:app_rick_and_morty/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,7 +43,7 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
         ? _buildSearchField(homeController) 
         : _buildLogoAndTitle(),
       centerTitle: !homeController.isSearchMode.value,
-      backgroundColor: backgroundColor ?? const Color(0xFF1C1B1F),
+      backgroundColor: backgroundColor ?? AppColors.primaryBackground,
       elevation: elevation,
       leading: leading ?? (showMenuIcon ? 
         Padding(
@@ -50,11 +51,11 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
           child: IconButton(
             icon: const Icon(
               Icons.menu,
-              color: Colors.white,
+              color: AppColors.textWhite,
               size: 28,
             ),
             onPressed: () {
-              print('Menu clicado');
+
             },
           ),
         ) : null),
@@ -64,7 +65,7 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
           child: IconButton(
             icon: Icon(
               homeController.isSearchMode.value ? Icons.close : Icons.search,
-              color: Colors.white,
+              color: AppColors.textWhite,
               size: 28,
             ),
             onPressed: () {
@@ -84,16 +85,16 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white70, width: 1),
+                  border: Border.all(color: AppColors.textWhite70, width: 1),
                 ),
                 child: const Icon(
                   Icons.person,
-                  color: Colors.white,
+                  color: AppColors.textWhite,
                   size: 24,
                 ),
               ),
               onPressed: () {
-                print('Perfil clicado');
+                
               },
             ),
           ),
@@ -107,32 +108,32 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
       child: Container(
         height: 45,
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.1),
+          color: AppColors.searchFieldBg,
           borderRadius: BorderRadius.circular(25),
-          border: Border.all(color: Colors.white.withOpacity(0.3)),
+          border: Border.all(color: AppColors.borderWhite30),
         ),
         child: TextField(
           autofocus: true,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: AppColors.textWhite, fontSize: 16),
           decoration: InputDecoration(
             hintText: 'Buscar personagens...',
-            hintStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+            hintStyle: const TextStyle(color: AppColors.textWhite70),
             prefixIcon: Padding(
-              padding: EdgeInsets.only(left: 15, right: 10),
+              padding: const EdgeInsets.only(left: 15, right: 10),
               child: Obx(() => controller.isSearching.value
                 ? const SizedBox(
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.textWhite),
                     ),
                   )
-                : Icon(Icons.search, color: Colors.white.withOpacity(0.7))),
+                : const Icon(Icons.search, color: AppColors.textWhite70)),
             ),
             suffixIcon: Obx(() => controller.searchQuery.value.isNotEmpty
               ? IconButton(
-                  icon: Icon(Icons.clear, color: Colors.white.withOpacity(0.7)),
+                  icon: const Icon(Icons.clear, color: AppColors.textWhite70),
                   onPressed: () => controller.updateSearchQuery(''),
                 )
               : const SizedBox()),
@@ -160,13 +161,12 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
               height: logoHeight,
               fit: BoxFit.contain,
               errorBuilder: (context, error, stackTrace) {
-                print('Erro ao carregar imagem: $error');
                 return Container(
                   height: logoHeight,
                   width: logoHeight,
                   child: const Icon(
                     Icons.error,
-                    color: Colors.white,
+                    color: AppColors.textWhite,
                     size: 30,
                   ),
                 );
@@ -182,7 +182,7 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
           style: TextStyle(
             fontFamily: 'Lato-Regular.ttf',
             letterSpacing: 2.0,
-            color: titleColor ?? Colors.white,
+            color: titleColor ?? AppColors.textWhite,
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
@@ -222,7 +222,7 @@ class ReactiveCustomAppBar extends GetView<CustomAppBarController> implements Pr
             ),
           )
         : Text(title),
-      backgroundColor: const Color(0xFF1C1B1F),
+      backgroundColor: AppColors.primaryBackground,
       actions: [
         IconButton(
           icon: Icon(controller.isSearchMode.value ? Icons.close : Icons.search),

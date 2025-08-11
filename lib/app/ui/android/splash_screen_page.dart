@@ -1,4 +1,5 @@
 import 'package:app_rick_and_morty/app/controller/splash_controller.dart';
+import 'package:app_rick_and_morty/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,7 +9,7 @@ class SplashPage extends GetView<SplashController> {
     Get.put(SplashController());
 
     return Scaffold(
-      backgroundColor: const Color(0xFF000000),
+      backgroundColor: AppColors.blackBackground,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -17,8 +18,8 @@ class SplashPage extends GetView<SplashController> {
             center: Alignment.center,
             radius: 1.0,
             colors: [
-              Color(0xFF1a1a1a),
-              Color(0xFF000000),
+              AppColors.splashGradientDark,
+              AppColors.blackBackground,
             ],
           ),
         ),
@@ -30,11 +31,11 @@ class SplashPage extends GetView<SplashController> {
               
               Container(
                 padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.green.withOpacity(0.3),
+                      color: AppColors.shadowGreen30,
                       blurRadius: 30,
                       spreadRadius: 5,
                     ),
@@ -49,9 +50,9 @@ class SplashPage extends GetView<SplashController> {
                     return Container(
                       width: 150,
                       height: 150,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.green[700],
+                        color: AppColors.loadingGreen,
                       ),
                       child: const Icon(
                         Icons.science,
@@ -65,18 +66,18 @@ class SplashPage extends GetView<SplashController> {
               
               const SizedBox(height: 30),
               
-              Text(
+              const Text(
                 'RICK AND MORTY',
                 style: TextStyle(
                   fontFamily: 'Lato-Regular.ttf',
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: AppColors.textWhite,
                   letterSpacing: 3.0,
                   shadows: [
                     Shadow(
-                      color: Colors.green.withOpacity(0.5),
-                      offset: const Offset(0, 2),
+                      color: AppColors.shadowGreen50,
+                      offset: Offset(0, 2),
                       blurRadius: 4,
                     ),
                   ],
@@ -85,11 +86,11 @@ class SplashPage extends GetView<SplashController> {
               
               const SizedBox(height: 8),
               
-              Text(
+              const Text(
                 'API EXPLORER',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey[400],
+                  color: AppColors.textGrey400,
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.w300,
                 ),
@@ -97,18 +98,20 @@ class SplashPage extends GetView<SplashController> {
               
               const Spacer(flex: 2),
               
-              Column(
+              const Column(
                 children: [
                   CircularProgressIndicator(
-                    color: Colors.green[700],
+                    color: AppColors.loadingGreen,
                     strokeWidth: 3,
                   ),
-                  const SizedBox(height: 20),
+
+                  SizedBox(height: 20),
+
                   Text(
                     'Carregando dimensões...',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey[400],
+                      color: AppColors.textGrey400,
                       letterSpacing: 1.0,
                     ),
                   ),
@@ -117,11 +120,11 @@ class SplashPage extends GetView<SplashController> {
               
               const SizedBox(height: 40),
               
-              Text(
+              const Text(
                 'v1.0.0',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey[600],
+                  color: AppColors.textGrey600,
                   letterSpacing: 1.0,
                 ),
               ),

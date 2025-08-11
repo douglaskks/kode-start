@@ -1,4 +1,5 @@
 import 'package:app_rick_and_morty/app/controller/home_controller.dart';
+import 'package:app_rick_and_morty/app/ui/theme/app_colors.dart';
 import 'package:app_rick_and_morty/app/ui/widgets/app_bar_custom.dart';
 import 'package:app_rick_and_morty/app/ui/widgets/character_card.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: const Color(0xFF000000),
+      backgroundColor: AppColors.blackBackground,
       appBar: const CustomAppBar(
         title: 'RICK AND MORTY API',
         logoPath: 'assets/images/logomarca_app.png',
@@ -20,15 +21,15 @@ class HomePage extends GetView<HomeController> {
       body: Obx(() {       
 
         if (controller.isLoading.value && controller.characters.isEmpty) {
-          return Center(
+          return const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(color: Colors.green[700]),
-                const SizedBox(height: 16),
+                CircularProgressIndicator(color: AppColors.loadingGreen),
+                SizedBox(height: 16),
                 Text(
                   'Carregando personagens...',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                  style: TextStyle(fontSize: 16, color: AppColors.textGrey600),
                 ),
               ],
             ),
@@ -43,7 +44,7 @@ class HomePage extends GetView<HomeController> {
                 const Icon(
                   Icons.error_outline,
                   size: 64,
-                  color: Colors.red,
+                  color: AppColors.errorRed,
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -59,15 +60,15 @@ class HomePage extends GetView<HomeController> {
                   child: Text(
                     controller.errorMessage.value,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: const TextStyle(color: AppColors.textGrey600),
                   ),
                 ),
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: controller.loadCharacters,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green[700],
-                    foregroundColor: Colors.white,
+                    backgroundColor: AppColors.loadingGreen,
+                    foregroundColor: AppColors.textWhite,
                   ),
                   child: const Text('Tentar novamente'),
                 ),
@@ -79,7 +80,7 @@ class HomePage extends GetView<HomeController> {
 
         return RefreshIndicator(
           onRefresh: controller.refreshCharacters,
-          color: Colors.green[700],
+          color: AppColors.loadingGreen,
           child: NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification scrollInfo) {
 
@@ -90,17 +91,17 @@ class HomePage extends GetView<HomeController> {
             },
 
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               itemCount: controller.characters.length + 
                          (controller.hasMorePages.value ? 1 : 0),
               itemBuilder: (context, index) {
 
                 if (index == controller.characters.length) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16),
+                  return const Padding(
+                    padding: EdgeInsets.all(16),
                     child: Center(
                       child: CircularProgressIndicator(
-                        color: Colors.green[700],
+                        color: AppColors.loadingGreen,
                       ),
                     ),
                   );

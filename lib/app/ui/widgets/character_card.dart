@@ -17,8 +17,7 @@ class CharacterCard extends StatefulWidget {
 }
 
 class _CharacterCardState extends State<CharacterCard>
-
-  with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
@@ -82,6 +81,7 @@ class _CharacterCardState extends State<CharacterCard>
                     child: Stack(
                       children: [
 
+                        // Imagem do personagem
                         if (widget.character.image != null && widget.character.image!.isNotEmpty)
                           CachedNetworkImage(
                             imageUrl: widget.character.image!,
@@ -108,6 +108,7 @@ class _CharacterCardState extends State<CharacterCard>
                             ),
                           ),
 
+                        // Gradiente overlay
                         Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -121,6 +122,7 @@ class _CharacterCardState extends State<CharacterCard>
                           ),
                         ),
 
+                        // Nome do personagem
                         Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
