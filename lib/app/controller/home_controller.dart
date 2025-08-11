@@ -33,6 +33,8 @@ class HomeController extends GetxController {
   @override
   void onClose() {
     _debounceTimer?.cancel();
+    characters.clear();
+    allCharacters.clear();
     super.onClose();
   }
 

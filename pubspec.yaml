@@ -38,6 +38,7 @@ dependencies:
   get: ^4.7.2
   cached_network_image: ^3.4.1
   dio: ^5.9.0
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -68,3 +69,10 @@ flutter:
         - asset: assets/fonts/Lato-Italic.ttf
         - asset: assets/fonts/Lato-LightItalic.ttf
         - asset: assets/fonts/Lato-Regular.ttf
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logomarca_app.png"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images/logomarca_app.png"

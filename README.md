@@ -14,6 +14,17 @@
 
 </div>
 
+<br>
+
+<div align="center">
+  <img src="assets/Aplicativo-Kode-Start.gif" alt="Demonstração" width="200"/>
+</div>
+
+<br>
+
+Por ser um gif a qualidade do video não está original. **[Clique aqui](https://youtube.com/shorts/tOMwQlm96To?feature=share)** para entrar no video original.
+
+
 ## 📱 Sobre o Projeto
 
 Aplicativo que consome a [Rick and Morty API](https://rickandmortyapi.com/) para exibir informações detalhadas sobre os personagens da série. Desenvolvido seguindo as melhores práticas de desenvolvimento Flutter e focado em **performance** e **experiência do usuário**.
@@ -30,15 +41,15 @@ Aplicativo que consome a [Rick and Morty API](https://rickandmortyapi.com/) para
 
 ## 📸 Screenshots
 
-| Splash Screeen | Home Screen | Search Feature | 
-|:---:|:---:|:---:|
-|  <img src="assets/SplashScreen.png" alt="Lista de Personagens" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> |
-|Splash Screen Animada para dar um destaque ao app quando o usuário entrar| Lista completa de personagens com scroll infinito | Busca em tempo real por nome |
+| Splash Screeen | Home Screen |  
+|:---:|:---:|
+|  <img src="assets/SplashScreen.png" alt="Lista de Personagens" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | 
+|Splash Screen Animada para dar um destaque ao app quando o usuário entrar| Lista completa de personagens com scroll infinito |
 
-| Details Screen |
-|:---:|
-|<img src="assets/DetailsPage.png" alt="Detalhes do Personagem" width="250"/> |
-Informações detalhadas do personagem |
+| Search Screen | Details Screen |
+|:---:|:---:|
+| <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> | <img src="assets/DetailsPage.png" alt="Detalhes do Personagem" width="250"/> |
+ Busca em tempo real por nome | Informações detalhadas do personagem |
 
 
 ## 🏗️ Arquitetura
@@ -173,6 +184,70 @@ flutter run
 - **Time to First Paint:** ~800ms
 - **API Response:** ~200ms
 - **Image Loading:** Cache hit ~50ms
+
+
+### Métricas Coletadas com Flutter DevTools
+
+<div align="center">
+  <img src="assets/Desempenho.png" alt="Performance Analysis" width="600"/>
+</div>
+
+#### Resultados da Análise:
+- **FPS Médio**: 31 FPS durante scroll intenso
+- **Raster Time**: 24.2ms (dentro do limite para 30 FPS)
+- **UI Thread**: Majoritariamente estável
+- **Build Time**: 1.3ms (excelente)
+
+#### Otimizações Implementadas:
+
+##### 1. **ListView.builder com Item Extent**
+```dart
+ListView.builder(
+  itemCount: controller.characters.length,
+  itemBuilder: (context, index) => CharacterCard(...),
+  // Construção sob demanda - apenas widgets visíveis
+)
+```
+
+##### 2. **Cache Agressivo de Imagens**
+```dart
+CachedNetworkImage(
+  imageUrl: character.image,
+  memCacheHeight: 200, // Limita uso de memória
+  fadeInDuration: Duration(milliseconds: 300),
+)
+```
+
+##### 3. **Debounce na Busca**
+- Evita múltiplas requisições desnecessárias
+- Reduz processamento durante digitação
+- Timer de 500ms para equilíbrio UX/Performance
+
+#### Análise do Jank Detectado:
+
+O jank ocasional ocorre durante:
+- **Primeiro carregamento** de muitas imagens simultâneas
+- **Scroll muito rápido** em listas grandes
+
+**Mitigações aplicadas:**
+- Pré-cache das primeiras 10 imagens
+- Redução da qualidade das imagens em cache
+- Lazy loading com paginação (20 items por vez)
+
+#### Consumo de Recursos:
+
+| Métrica | Valor | Status |
+|---------|-------|--------|
+| Memória média | ~45MB | ✅ Ótimo |
+| CPU em idle | <2% | ✅ Excelente |
+| CPU durante scroll | ~15% | ✅ Bom |
+| Tempo de inicialização | <2s | ✅ Ótimo |
+
+#### Dispositivos Testados:
+- ✅ Emulador Pixel 4 (Android 11)
+
+---
+
 
 ## 🧪 Testes
 

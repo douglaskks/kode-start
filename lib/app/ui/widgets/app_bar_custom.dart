@@ -82,14 +82,14 @@ class CustomAppBar extends GetView implements PreferredSizeWidget {
             padding: const EdgeInsets.only(bottom:80.0),
             child: IconButton(
               icon: Container(
-                padding: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(1),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.textWhite70, width: 1),
+                  border: Border.all(color: AppColors.textWhite70, width: 3),
                 ),
                 child: const Icon(
                   Icons.person,
-                  color: AppColors.textWhite,
+                  color: AppColors.textWhite70,
                   size: 24,
                 ),
               ),
