@@ -30,10 +30,16 @@ Aplicativo que consome a [Rick and Morty API](https://rickandmortyapi.com/) para
 
 ## 📸 Screenshots
 
-| Splash Screeen | Home Screen | Search Feature | Details Screen |
-|:---:|:---:|:---:|:---:|
-|  <img src="assets/SplashScreen.png" alt="Lista de Personagens" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> | <img src="assets/image-3.png" alt="Detalhes do Personagem" width="250"/> |
-|Splash Screen Animada para dar um destaque ao app quando o usuário entrar| Lista completa de personagens com scroll infinito | Busca em tempo real por nome | Informações detalhadas do personagem |
+| Splash Screeen | Home Screen | Search Feature | 
+|:---:|:---:|:---:|
+|  <img src="assets/SplashScreen.png" alt="Lista de Personagens" width="250"/> | <img src="assets/telaHomeSearch.png" alt="Lista de Personagens" width="250"/> | <img src="assets/searchScreen.png" alt="Busca de Personagens" width="250"/> |
+|Splash Screen Animada para dar um destaque ao app quando o usuário entrar| Lista completa de personagens com scroll infinito | Busca em tempo real por nome |
+
+| Details Screen |
+|:---:|
+|<img src="assets/DetailsPage.png" alt="Detalhes do Personagem" width="250"/> |
+Informações detalhadas do personagem |
+
 
 ## 🏗️ Arquitetura
 
@@ -76,7 +82,7 @@ lib/
 │       │   ├── home_page.dart
 │       │   └── splash_screen_page.dart
 │       ├── theme/
-│       |    └── app_colors.dart
+│       |   └── app_colors.dart
 |       └── widgets/
 │           ├── app_bar_custom.dart
 │           └── character_card.dart
@@ -91,7 +97,7 @@ lib/
 - [x] **Tela de detalhes completa** - Nome, imagem, espécie, gênero, status, origem, localização
 - [x] **Navegação entre telas** - GetX navigation
 
-### 🚀 Funcionalidades Extras (Diferenciais)
+### 🚀 Funcionalidades Extras
 - [x] **Busca por nome** - Debounce + API integration
 - [x] **Scroll infinito** - Paginação automática
 - [x] **Pull to refresh** - Atualização manual
@@ -137,6 +143,9 @@ git clone https://github.com/douglaskks/kode-start.git
 
 # Entre na pasta
 cd rick-and-morty-app
+
+# Entre na branch do projeto
+git checkout Desenvolvimento
 
 # Instale as dependências
 flutter pub get

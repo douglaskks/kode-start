@@ -62,6 +62,7 @@ class DetailPage extends GetView<DetailController> {
                     child: Column(
                       children: [
 
+                        //Imagem
                         Container(
                           height: 160,
                           width: 320,
@@ -91,6 +92,7 @@ class DetailPage extends GetView<DetailController> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
 
+                              //Nome do Personagem
                               Text(
                                 character.name.toUpperCase(),
                                 style: const TextStyle(
@@ -103,6 +105,7 @@ class DetailPage extends GetView<DetailController> {
                               
                               const SizedBox(height: 16),
                               
+                              // Status do Personagem e Espécie do Personagem
                               Row(
                                 children: [
                                   Container(
@@ -128,6 +131,7 @@ class DetailPage extends GetView<DetailController> {
                               
                               const SizedBox(height: 12),
                               
+                              // Última localização do personagem
                               const Text(
                                 'Last know location:',
                                 style: TextStyle(
@@ -150,6 +154,7 @@ class DetailPage extends GetView<DetailController> {
                               
                               const SizedBox(height: 12),
                               
+                              // Primeira aparição do Personagem
                               const Text(
                                 'First seen in:',
                                 style: TextStyle(
@@ -161,6 +166,7 @@ class DetailPage extends GetView<DetailController> {
 
                               const SizedBox(height: 4),
 
+
                               Obx(() => Text(
                                 controller.firstEpisodeName.value,
                                 style: const TextStyle(
@@ -168,7 +174,54 @@ class DetailPage extends GetView<DetailController> {
                                   color: AppColors.textWhite,
                                   fontWeight: FontWeight.w600,
                                 ),
-                              )),
+                              )
+                              ),
+                              
+                              const SizedBox(height: 12),
+
+                              // Gênero
+                              const Text(
+                                'Gender:',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.textWhite70,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+
+                              const SizedBox(height: 4),
+
+                              Text(
+                                character.gender,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: AppColors.textWhite,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+
+                              const SizedBox(height: 12),
+
+                              // Origem
+                              const Text(
+                                'Origin:',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.textWhite70,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              
+                              const SizedBox(height: 4),
+
+                              Text(
+                                character.origin.name,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: AppColors.textWhite,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                             ],
                           ),
                         ),

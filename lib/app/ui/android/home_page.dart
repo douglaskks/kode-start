@@ -20,6 +20,10 @@ class HomePage extends GetView<HomeController> {
 
       body: Obx(() {       
 
+        /*Equanto carrega os personagens mostra o CircularProgressIndicator e a mensagem de
+         Carregando personagem.
+        */
+
         if (controller.isLoading.value && controller.characters.isEmpty) {
           return const Center(
             child: Column(
@@ -29,13 +33,14 @@ class HomePage extends GetView<HomeController> {
                 SizedBox(height: 16),
                 Text(
                   'Carregando personagens...',
-                  style: TextStyle(fontSize: 16, color: AppColors.textGrey600),
+                  style: TextStyle(fontSize: 16, color: AppColors.textGrey600,)
                 ),
               ],
             ),
           );
         }
 
+        // Caso a requisição der erro, mostra a mensagem de erro
         if (controller.hasError.value && controller.characters.isEmpty) {
           return Center(
             child: Column(
@@ -77,7 +82,6 @@ class HomePage extends GetView<HomeController> {
           );
         }
 
-
         return RefreshIndicator(
           onRefresh: controller.refreshCharacters,
           color: AppColors.loadingGreen,
@@ -89,7 +93,8 @@ class HomePage extends GetView<HomeController> {
               }
               return false;
             },
-
+            
+            // Lista de personagens gerada
             child: ListView.builder(
               physics: const AlwaysScrollableScrollPhysics(),
               itemCount: controller.characters.length + 
