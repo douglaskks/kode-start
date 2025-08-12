@@ -34,6 +34,8 @@ migrate_working_dir/
 /windows
 /macos
 /linux
+/docs
+/projects
 
 # Symbolication related
 app.*.symbols
