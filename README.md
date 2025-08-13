@@ -22,7 +22,7 @@
 
 <br>
 
-Por ser um gif a qualidade do video não está original. **[Clique aqui](https://youtube.com/shorts/tOMwQlm96To?feature=share)** para entrar no video original.
+Por ser um gif a qualidade do video não está original. **[Clique aqui](https://youtube.com/shorts/_jo1bzmfg2w?feature=share)** para entrar no video original.
 
 
 ## 📱 Sobre o Projeto
